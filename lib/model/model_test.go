@@ -1895,7 +1895,7 @@ func TestSharedWithClearedOnDisconnect(t *testing.T) {
 		t.Error("folder missing?")
 	}
 
-	for _, id := range fdevs {
+	for id := range fdevs {
 		if id == device2 {
 			t.Error("still there")
 		}
