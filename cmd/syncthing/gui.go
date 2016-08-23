@@ -437,6 +437,8 @@ func corsMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Process OPTIONS requests
 		if r.Method == "OPTIONS" {
+			// Add a generous access-control-allow-origin header for CORS requests
+			w.Header().Add("Access-Control-Allow-Origin", "*")
 			// Only GET/POST Methods are supported
 			w.Header().Set("Access-Control-Allow-Methods", "GET, POST")
 			// Only this custom header can be set
